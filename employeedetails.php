@@ -31,7 +31,7 @@
                   </div>
                   <form role="form">
                     <div class="card-body row">
-                      <div class="form-group col-md-12">
+                    <div class="form-group col-md-12">
                         <label for="department">Company</label>
                         <div class="input-group">
                           <select
@@ -51,6 +51,24 @@
                           ></select>
                         </div>
                       </div>
+                      <div class="form-group col-md-12">
+                        <label for="empl">Employee</label>
+                        <div class="input-group">
+                          <select
+                            class="form-control"
+                            id="employ"
+                            name="employ"
+                          ></select>
+                        </div>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="month1">Month</label>
+                        <input type="month" class="form-control" id="month1">                        
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="year">Year</label> 
+                        <input type="date" class="form-control" id="year">
+                      </div>
                     </div>
                     <!-- /.card-body -->
                   </form>
@@ -63,6 +81,10 @@
           <!-- /.container-fluid -->
           <div class="container-fluid">
             <div class="card">
+                <div class="card-header row">
+                  <h3 class="card-title col-9">Display Data</h3>
+                  <input type="text" class="form-control col-3" id="txt_searchemployee" name="txt_searchemployee" placeholder="Search Employee"/>
+                </div>
               <table class="table table-bordered">
                 <thead>
                   <tr>

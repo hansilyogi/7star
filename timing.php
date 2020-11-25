@@ -60,6 +60,16 @@
                           name="set"
                           placeholder="Shift End Time"
                         />
+                      </div>
+                      <div class="form-group col-md-3">
+                        <label for="set">Weekly-OFF</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="weekly"
+                          name="weekly"
+                          placeholder="Weekly-off"
+                        />
                       </div>                                   
                     </div>
                     <!-- /.card-body -->
@@ -93,7 +103,8 @@
           <div class="container-fluid">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Display Data</h3>
+                <h3 class="card-title col-9">Display Data</h3>
+                <input type="text" class="form-control col-3" id="txt_searchemployee" name="txt_searchemployee" placeholder="Search Shift"/>
               </div>
               <!-- /.card-header -->
               <table class="table table-bordered">

@@ -1,39 +1,95 @@
 $(document).ready(function () {
+  var id = $(location).attr("href").split("=")[1];
+  var URL = 'http://15.206.236.83/api/';
   loaddata();
+  console.log("asd");
   loadsubcompany();
   loadtiming();
-
+  var subcompanydata;
+  var timingdata;
+  //loaddata();
   var UPDATEID;
+  var SUBCOMPANYID;
+  var TIMINGID;
   var TIMING;
+
+  // function loadsubcompany() {
+  //   $.ajax({
+  //     type: "POST",
+  //     url: $("#website-url").attr("value") + "employee",
+  //     data: { type: "getsubcompany" },
+  //     dataType: "json",
+  //     cache: false,
+  //     success: function (data) {
+  //       if (data.isSuccess == true) {
+  //         $("#subcompany").html("");
+  //         for (i = 0; i < data.Data.length; i++) {
+  //           $("#subcompany").append(
+  //             "<option value=" +
+  //               data.Data[i]._id +
+  //               ">" +
+  //               data.Data[i].Name +
+  //               "</option>"
+  //           );
+  //         }
+  //       }
+  //     },
+  //   });
+  // }
 
   function loadsubcompany() {
     $.ajax({
       type: "POST",
-      url: $("#website-url").attr("value") + "employee",
-      data: { type: "getsubcompany" },
+      url: 'http://15.206.236.83/api/subcompany',
+      data: { type: "getdata", token: $("#website-token").attr("value"),empID:UPDATEID,subcompanyID:SUBCOMPANYID },
       dataType: "json",
       cache: false,
       success: function (data) {
         if (data.isSuccess == true) {
+          subcompanydata = data;
           $("#subcompany").html("");
-          for (i = 0; i < data.Data.length; i++) {
+          if(data.Data.length > 1){
+            for (i = 0; i < data.Data.length; i++) {
+              $("#subcompany").append(
+                "<option value=" +
+                  data.Data[i]._id +
+                  ">" +
+                  data.Data[i].Name +
+                  "</option>"
+              );
+            }
+          } else {
             $("#subcompany").append(
               "<option value=" +
-                data.Data[i]._id +
+                data.Data._id +
                 ">" +
-                data.Data[i].Name +
+                data.Data.Name +
                 "</option>"
             );
           }
+          // loadtiming();
         }
       },
     });
   }
 
+  $('#txt_emp').keyup(function(){
+    var search = $(this).val();
+    $('table tbody tr').hide();
+    var len = $('table tbody tr:not(.notfound) td:contains("'+search.charAt(0)+'")').length;
+    if(len > 0){
+      $('table tbody tr:not(.notfound) td:contains("'+search.charAt(0) + search.slice(1)+'")').each(function(){
+        $(this).closest('tr').show();
+      });
+    }else{
+      $('.notfound').show();
+    }
+  });
+
   function loadtiming() {
     $.ajax({
       type: "POST",
-      url: $("#website-url").attr("value") + "timing",
+      url: URL + "timing",
       data: { type: "getdata" },
       dataType: "json",
       cache: false,

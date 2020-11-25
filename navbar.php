@@ -14,7 +14,7 @@
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel mt-3 pb-3 mb-3 ml-3 d-flex">            
             <div class="info">
-              <a href="#" class="d-block">HIND TV</a>
+              <a href="#" class="d-block">7-STAR</a>
             </div>
           </div>
 
@@ -38,7 +38,7 @@
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-brain"></i>
                 <p>
-                  Masters
+                  Shift
                   <i class="fas fa-angle-left right"></i>                
                 </p>
               </a>
@@ -101,33 +101,14 @@
                     </a>
                     </li>
                 </ul>
-              </li>     
+              </li>
               <li class="nav-item">
-                <a href="map.php" class="nav-link">
-                  <i class="nav-icon fas fa-map-marker"></i>
+                <a href="add_user.php" class="nav-link">
+                  <i class="nav-icon fas fa-users"></i>
                   <p>
-                    Live Location
+                    Add User
                   </p>
                 </a>
-              </li>
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-file-excel"></i>
-                  <p>
-                    Report's
-                    <i class="fas fa-angle-left right"></i>                
-                  </p>
-                  </a>
-                <ul class="nav nav-treeview" style="display: none;">
-                  <li class="nav-item">
-                    <a href="employeeattendance.php" class="nav-link">
-                      <i class="nav-icon fas fa-file-excel"></i>
-                      <p>
-                        Employee Attendance
-                      </p>
-                    </a>
-                  </li>                  
-                </ul>
               </li>
               <li class="nav-item">
                 <a href="index.php" class="nav-link">

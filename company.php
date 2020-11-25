@@ -135,7 +135,8 @@
           <div class="container-fluid">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Display Data</h3>
+                <h3 class="card-title col-9">All Company</h3>
+                <input type="text" class="form-control col-3" id="txt_company" name="txt_company" placeholder="Search Company"/>
               </div>
               <!-- /.card-header -->
               <table class="table table-bordered">

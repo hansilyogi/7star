@@ -1,14 +1,16 @@
 $(document).ready(function () {
   var COMPANY;
   var SUBCOMPANY;
+  var URL = 'http://15.206.236.83/api/';
+  var x;
 
   loadcompany();
 
   function loadcompany() {
     $.ajax({
       type: "POST",
-      url: $("#website-url").attr("value") + "company",
-      data: { type: "getdata" },
+      url: URL + "company",
+      data: { type: "getdata", token: $("#website-token").attr("value") },
       dataType: "json",
       cache: false,
       success: function (data) {
@@ -32,16 +34,25 @@ $(document).ready(function () {
 
   function subcompany() {
     var id = COMPANY;
+    console.log(id);
     $.ajax({
       type: "POST",
-      url: $("#website-url").attr("value") + "subcompany",
-      data: { type: "getsinglecompany", CompanyId: id },
+      url: URL + "subcompany",
+      data: {
+        type: "getsinglecompany",
+        CompanyId: id,
+        token: $("#website-token").attr("value"),
+      },
       dataType: "json",
       cache: false,
       success: function (data) {
         if (data.isSuccess == true) {
           $("#subcompany").html("");
           SUBCOMPANY = data.Data[0]._id;
+          $("#subcompany").append(
+            "<option value=0>All</option>"
+          );
+          SUBCOMPANY = $("#subcompany").val();
           for (i = 0; i < data.Data.length; i++) {
             $("#subcompany").append(
               "<option value=" +
@@ -56,12 +67,18 @@ $(document).ready(function () {
       },
     });
   }
+  var SUBCOMPANY = '5ef77fc62160c400240c4fac';
+  employee();
 
   function employee() {
     $.ajax({
       type: "POST",
-      url: $("#website-url").attr("value") + "employee",
-      data: { type: "getsubcompanyemployee", SubCompany: SUBCOMPANY },
+      url: URL + "employee",
+      data: {
+        type: "getsubcompanyemployee",
+        SubCompany: SUBCOMPANY,
+        token: $("#website-token").attr("value"),
+      },
       dataType: "json",
       cache: false,
       beforeSend: function () {
@@ -70,22 +87,24 @@ $(document).ready(function () {
         );
       },
       success: function (data) {
-        if (data.isSuccess == true) {
-          $("#displaydata").html("");
-          if (data.Data.length > 0) {
+          if (data.isSuccess == true) {
+            $("#employ").html("");
+            SUBCOMPANY = data.Data[0]._id;
+            $("#employ").append(
+              "<option value=0>All</option>"
+            );
+            // SUBCOMPANY = $("#subcompany").val();
             for (i = 0; i < data.Data.length; i++) {
-              $("#displaydata").append(
-                "<tr><td>" +
-                  data.Data[i].Name +
-                  "</td><td>" +
-                  "<a href=attendance.php?id=" +
+              $("#employ").append(
+                "<option value=" +
                   data.Data[i]._id +
-                  ">View</a>" +
-                  "</td></tr>"
+                  ">" +
+                  data.Data[i].Name +
+                  "</option>"
               );
             }
           }
-        } else {
+         else {
           $("#displaydata").html(
             '<tr><td colspan="4" class="text-center font-weight-bold">No Records Found.</td></tr></center>'
           );
@@ -93,6 +112,19 @@ $(document).ready(function () {
       },
     });
   }
+
+  $('#txt_searchemployee').keyup(function(){
+    var search = $(this).val();
+    $('table tbody tr').hide();
+    var len = $('table tbody tr:not(.notfound) td:contains("'+search.charAt(0)+'")').length;
+    if(len > 0){
+      $('table tbody tr:not(.notfound) td:contains("'+search.charAt(0) + search.slice(1)+'")').each(function(){
+        $(this).closest('tr').show();
+      });
+    }else{
+      $('.notfound').show();
+    }
+  });
 
   $(document).on("change", "#company", function () {
     COMPANY = $("#company").val();

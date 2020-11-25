@@ -38,8 +38,8 @@
                           class="form-control"
                           id="firstname"
                           name="firstname"
-                          placeholder="First Name"
-                        />
+                          placeholder="First Name" required
+                        >
                       </div>
                       <div class="form-group col-md-3">
                         <label for="lastname">Middle Name</label>
@@ -48,8 +48,7 @@
                           class="form-control"
                           id="middlename"
                           name="middlename"
-                          placeholder="Middle Name"
-                        />
+                          placeholder="Middle Name" required>
                       </div>
                       <div class="form-group col-md-3">
                         <label for="lastname">Last Name</label>
@@ -58,8 +57,7 @@
                           class="form-control"
                           id="lastname"
                           name="lastname"
-                          placeholder="Last Name"
-                        />
+                          placeholder="Last Name" required>
                       </div>
                       <div class="form-group col-md-3">
                         <label for="gender">Gender</label>
@@ -68,7 +66,7 @@
                             <select
                               class="form-control"
                               id="gender"
-                              name="gender"
+                              name="gender" required
                             >
                               <option value="Male">Male</option>
                               <option value="Female">Female</option>
@@ -84,8 +82,8 @@
                               type="text"
                               class="form-control"
                               id="dob"
-                              name="dob"
-                            />
+                              name="dob" required
+                            >
                           </div>
                         </div>
                       </div>
@@ -98,8 +96,8 @@
                               class="form-control"
                               id="mobile"
                               name="mobile"
-                              placeholder="Mobile"
-                            />
+                              placeholder="Mobile" required
+                            >
                           </div>
                         </div>
                       </div>
@@ -112,8 +110,8 @@
                               class="form-control"
                               id="mail"
                               name="mail"
-                              placeholder="Mail Id"
-                            />
+                              placeholder="Mail Id" required
+                            >
                           </div>
                         </div>
                       </div>
@@ -124,7 +122,7 @@
                             <select
                               class="form-control"
                               id="married"
-                              name="married"
+                              name="married" required
                             >
                               <option value="Single">Single</option>
                               <option value="Married">Married</option>
@@ -140,8 +138,8 @@
                               type="text"
                               class="form-control"
                               id="joindate"
-                              name="joindate"
-                            />
+                              name="joindate" required
+                            >
                           </div>
                         </div>
                       </div>
@@ -153,8 +151,8 @@
                               type="text"
                               class="form-control"
                               id="confirmationdate"
-                              name="confirmationdate"
-                            />
+                              name="confirmationdate" required
+                            >
                           </div>
                         </div>
                       </div>
@@ -166,8 +164,8 @@
                               type="text"
                               class="form-control"
                               id="terminationdate"
-                              name="terminationdate"
-                            />
+                              name="terminationdate" required
+                            >
                           </div>
                         </div>
                       </div>
@@ -178,8 +176,8 @@
                           class="form-control"
                           id="prohibition"
                           name="prohibition"
-                          placeholder="Prohibition Period(Months)"
-                        />
+                          placeholder="Prohibition Period(Months)" required
+                        >
                       </div>
                       <div class="form-group col-md-3">
                         <label for="subcompany">Sub Company</label>
@@ -187,7 +185,7 @@
                           <select
                             class="form-control"
                             id="subcompany"
-                            name="subcompany"
+                            name="subcompany" required
                           ></select>
                         </div>
                       </div>
@@ -200,8 +198,8 @@
                               class="form-control"
                               id="department"
                               name="department"
-                              placeholder="Department"
-                            />
+                              placeholder="Department" required
+                            >
                           </div>
                         </div>
                       </div>
@@ -214,8 +212,8 @@
                               class="form-control"
                               id="designation"
                               name="designation"
-                              placeholder="Designation"
-                            />
+                              placeholder="Designation" required
+                            >
                           </div>
                         </div>
                       </div>
@@ -228,8 +226,8 @@
                               class="form-control"
                               id="idtype"
                               name="idtype"
-                              placeholder="ID Type"
-                            />
+                              placeholder="ID Type" required
+                            >
                           </div>
                         </div>
                       </div>
@@ -242,8 +240,8 @@
                               class="form-control"
                               id="idnumber"
                               name="idnumber"
-                              placeholder="ID Number"
-                            />
+                              placeholder="ID Number" required
+                            >
                           </div>
                         </div>
                       </div>
@@ -253,7 +251,7 @@
                           <select
                             class="form-control"
                             id="timing"
-                            name="timing"
+                            name="timing" required
                           ></select>
                         </div>
                       </div>
@@ -289,7 +287,8 @@
           <div class="container-fluid">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Display Data</h3>
+                <h3 class="card-title col-9">All Employee</h3>
+                <input type="text" class="form-control col-3" id="txt_emp" name="txt_emp" placeholder="Search Employee"/>
               </div>
               <!-- /.card-header -->
               <table class="table table-bordered">
