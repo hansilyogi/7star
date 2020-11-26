@@ -1,7 +1,7 @@
 $(document).ready(function () {
   var COMPANY;
   var SUBCOMPANY;
-  var URL = 'http://15.206.236.83/api/';
+  // var URL = 'http://15.206.236.83/api/';
   var x;
 
   loadcompany();
@@ -9,7 +9,7 @@ $(document).ready(function () {
   function loadcompany() {
     $.ajax({
       type: "POST",
-      url: URL + "company",
+      url: $("#website-url").attr("value") + "company",
       data: { type: "getdata", token: $("#website-token").attr("value") },
       dataType: "json",
       cache: false,
@@ -37,7 +37,7 @@ $(document).ready(function () {
     console.log(id);
     $.ajax({
       type: "POST",
-      url: URL + "subcompany",
+      url: $("#website-url").attr("value") + "subcompany",
       data: {
         type: "getsinglecompany",
         CompanyId: id,
@@ -67,13 +67,11 @@ $(document).ready(function () {
       },
     });
   }
-  var SUBCOMPANY = '5ef77fc62160c400240c4fac';
-  employee();
 
   function employee() {
     $.ajax({
       type: "POST",
-      url: URL + "employee",
+      url: $("#website-url").attr("value") + "employee",
       data: {
         type: "getsubcompanyemployee",
         SubCompany: SUBCOMPANY,

@@ -1,8 +1,7 @@
 $(document).ready(function () {
   var id = $(location).attr("href").split("=")[1];
-  var URL = 'http://15.206.236.83/api/';
+  // var URL = 'http://15.206.236.83/api/';
   loaddata();
-  console.log("asd");
   loadsubcompany();
   loadtiming();
   var subcompanydata;
@@ -11,7 +10,6 @@ $(document).ready(function () {
   var UPDATEID;
   var SUBCOMPANYID;
   var TIMINGID;
-  var TIMING;
 
   // function loadsubcompany() {
   //   $.ajax({
@@ -40,7 +38,7 @@ $(document).ready(function () {
   function loadsubcompany() {
     $.ajax({
       type: "POST",
-      url: 'http://15.206.236.83/api/subcompany',
+      url: $("#website-url").attr("value") + "subcompany",
       data: { type: "getdata", token: $("#website-token").attr("value"),empID:UPDATEID,subcompanyID:SUBCOMPANYID },
       dataType: "json",
       cache: false,
@@ -89,31 +87,76 @@ $(document).ready(function () {
   function loadtiming() {
     $.ajax({
       type: "POST",
-      url: URL + "timing",
-      data: { type: "getdata" },
+      url: $("#website-url").attr("value") + "employee",
+      data: { type: "gettiming", token: $("#website-token").attr("value"), timingID:TIMINGID },
       dataType: "json",
       cache: false,
       success: function (data) {
         if (data.isSuccess == true) {
+          timingdata = data;
           $("#timing").html("");
-          TIMING = data.Data[0]._id;
-          for (i = 0; i < data.Data.length; i++) {
+          TIMING = data.Data._id;
+          if(data.Data.length>1){
+            for (i = 0; i < data.Data.length; i++) {
+              $("#timing").append(
+                "<option value=" +
+                  data.Data[i]._id +
+                  ">" +
+                  data.Data[i].Name +
+                  " - " +
+                  data.Data[i].StartTime +
+                  " - " +
+                  data.Data[i].EndTime +
+                  "</option>"
+              );
+            }
+          } else {
             $("#timing").append(
               "<option value=" +
-                data.Data[i]._id +
+                data.Data._id +
                 ">" +
-                data.Data[i].Name +
+                data.Data.Name +
                 " - " +
-                data.Data[i].StartTime +
+                data.Data.StartTime +
                 " - " +
-                data.Data[i].EndTime +
+                data.Data.EndTime +
                 "</option>"
             );
           }
+          // loaddata();
         }
       },
     });
   }
+
+  // function loadtiming() {
+  //   $.ajax({
+  //     type: "POST",
+  //     url: URL + "timing",
+  //     data: { type: "getdata" },
+  //     dataType: "json",
+  //     cache: false,
+  //     success: function (data) {
+  //       if (data.isSuccess == true) {
+  //         $("#timing").html("");
+  //         TIMING = data.Data[0]._id;
+  //         for (i = 0; i < data.Data.length; i++) {
+  //           $("#timing").append(
+  //             "<option value=" +
+  //               data.Data[i]._id +
+  //               ">" +
+  //               data.Data[i].Name +
+  //               " - " +
+  //               data.Data[i].StartTime +
+  //               " - " +
+  //               data.Data[i].EndTime +
+  //               "</option>"
+  //           );
+  //         }
+  //       }
+  //     },
+  //   });
+  // }
 
   function loaddata() {
     $.ajax({

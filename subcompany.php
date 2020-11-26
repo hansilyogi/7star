@@ -65,14 +65,14 @@
                         />
                       </div>
                       <div class="form-group col-md-3">
-                        <label for="ccpn">Contact Person Number</label>
+                        <label for="cpn">Contact Person Number</label>
                         <div class="input-group">
                           <div class="custom-file">
                             <input
                               type="text"
                               class="form-control"
-                              id="ccpn"
-                              name="ccpn"
+                              id="cpn"
+                              name="cpn"
                               placeholder="Contact Person Number"
                             />
                           </div>

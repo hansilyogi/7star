@@ -15,7 +15,7 @@
             </div>
             <div class="row"> 
               <div class="col-lg-4 col-6">
-                <a href="attendance.php">
+                <a href="">
                 <div class="small-box" style="background-color:#008B8B">
                   <div class="icon">
                     <i class="fas fa-user" style="color:black"></i>
@@ -29,7 +29,7 @@
               </div>
         
               <div class="col-lg-4 col-6">
-                <a href="employeeview.php">
+                <a href="">
                 <div class="small-box" style="background-color:#008B8B">
                   <div class="icon">
                     <i class="fas fas fa-users" style="color:black"></i>
@@ -43,7 +43,7 @@
               </div>
 
               <div class="col-lg-4 col-6">
-                <a href="leaveAction.php">
+                <a href="">
                 <div class="small-box" style="background-color:#008B8B">
                   <div class="icon">
                     <i class="fas fa-sticky-note" style="color:black"></i>
